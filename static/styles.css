@@ -10,7 +10,164 @@
 html, body {
     width: 100vw;
     min-height: 100vh;
-    background-color: #2d3436;
+    background-color: #111;
     color: #fff;
+    font: 16px sans-serif;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.joincreate-cont {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.joincreate-cont div:not(.form-cont) {
+    display: flex;
+    justify-content: flex-end;
+    width: 290px;
+}
+
+.mainOption {
+    color: gray;
+    padding: 5px 16px;
+    flex-grow: 1;
+    border: 1px solid gray;
+    margin: 5px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.mainOption:hover {
+    color: white;
+    border-color: white;
+}
+
+
+.mainOption.active {
+    color: white;
+    border-color: white;
+}
+
+.form-cont form {
+    display: none;
+}
+
+.form-cont form.active {
+    width: 290px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+form label {
+    margin-top: 5px;
+    width: 92px;
+}
+
+form input {
+    padding: 5px 8px;
+    border: 1px solid gray;
+    color: white;
+    margin: 5px;
+    line-height: 18px;
+}
+
+form input::placeholder {
+    color: gray;
+}
+
+form input:focus {
+    border-color: white;
+}
+
+form p {
+    flex-grow: 1;
+    min-width: 100px;
+}
+
+form p.bad {
+    color: #e74c3c;
+}
+
+form p.good {
+    color: #2ecc71;
+}
+
+form button {
+    padding: 5px 8px;
+    color: gray;
+    border: 1px solid gray;
+    font: inherit;
+    margin: 5px;
+    cursor: pointer;
+}
+
+form button.bad {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+form button.good {
+    border-color: #2ecc71;
+    color: #2ecc71;
+}
+
+.room {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 100ms ease;
+}
+
+.room.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.room h2 {
+    font-weight: normal;
+    margin: 15px;
+}
+
+.room #alert {
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    font-size: 3em;
+    padding: 24px 90px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.room #alert.active {
+    transition: 100ms;
+    animation: buttonFlash 250ms linear infinite alternate;
+    color: black;
+    border: none;
+}
+
+.room #alert.active ~ #stopAlert {
+    display: inline;
+} 
+
+.room #stopAlert {
+    color: white;
+    cursor: pointer;
+    font: inherit;
+    display: none;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+@keyframes buttonFlash {
+    from {background-color: red;}
+    to {background-color: blue;}
+}

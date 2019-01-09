@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="no-js" lang="">
+<html lang="">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -11,22 +11,36 @@
         <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
-        <div>
-            <button>Create a Group</button>
-            <button>Join a Group</button>
+        <div class='joincreate-cont'>
+            <div>
+                <button class='mainOption' href='#createGForm'>Create a Group</button>
+                <button class='mainOption' href='#joinGForm'>Join a Group</button>
+            </div>
+            <div class='form-cont'>
+                <form id='createGForm' autocomplete="off">
+                    <label for="groupName">Group Name </label>
+                    <input type="text" id="groupName" name="groupName" placeholder="Name">
+                    <p></p>
+                    <button>Create</button>
+                </form>
+            </div>
+            <div class='form-cont'>
+                <form id='joinGForm' autocomplete="off">
+                    <label for="joinGroup">Group Code </label>
+                    <input type="text" id="groupCode" name="groupCode" placeholder="Code">
+                    <p></p>
+                    <button>Join</button>
+                </form>
+            </div>
         </div>
-        <br/>
-        <form id='createGForm'>
-            <label for="groupName">Group Name </label>
-            <input type="text" id="groupName" name="groupName" placeholder="Name">
-        </form>
-        <br/>
-        <form id='joinGForm'>
-            <label for="joinGroup">Join using a Group Code </label>
-            <input type="text" id="createGroup" name="createGroup" placeholder="Code">
-        </form>
+        <div class='room hidden'>
+            <h1 id='roomName'></h1>
+            <h2 id='roomCode'></h2>
+            <button id='alert'>Send Alert</button>
+            <button id='stopAlert'>Stop Alert</button>
+        </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src='/socket.io/socket.io.js'></script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js'></script>
         <script src='/main.js'></script>
     </body>
 </html>
